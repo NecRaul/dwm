@@ -168,10 +168,10 @@ static const Key keys[] = {
     {MODKEY, XK_f, togglefullscr, {0}},
     {MODKEY, XK_g, view, {0}},
     {MODKEY, XK_h, setmfact, {.f = -0.05}},
-    {MODKEY, XK_j, focusstack, {.i = +1}},
-    {MODKEY, XK_k, focusstack, {.i = -1}},
-    {MODKEY | ShiftMask, XK_j, pushstack, {.i = +1}},
-    {MODKEY | ShiftMask, XK_k, pushstack, {.i = -1}},
+    {MODKEY, XK_j, focusstack, {.i = INC(+1)}},
+    {MODKEY, XK_k, focusstack, {.i = INC(-1)}},
+    {MODKEY | ShiftMask, XK_j, pushstack, {.i = INC(+1)}},
+    {MODKEY | ShiftMask, XK_k, pushstack, {.i = INC(-1)}},
     {MODKEY, XK_l, setmfact, {.f = +0.05}},
     {MODKEY, XK_semicolon, shiftview, {.i = -1}},
     {MODKEY, XK_apostrophe, shiftview, {.i = 1}},
@@ -247,4 +247,3 @@ static const Button buttons[] = {
     {ClkTagBar, 0, Button5, shiftview, {.i = 1}},
     {ClkRootWin, 0, Button2, togglebar, {0}},
 };
-
