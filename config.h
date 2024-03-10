@@ -198,6 +198,7 @@ static const Key keys[] = {
     {ControlMask, XK_Print, spawn, {.v = (const char *[]){"maimpick", "window", NULL}}},
     {MODKEY, XK_Print, spawn, {.v = (const char *[]){"maimpick", "screen", NULL}}},
     {Mod1Mask, XK_Print, spawn, {.v = (const char *[]){"maimpick", "all screens", NULL}}},
+    {MODKEY, XK_F1, spawn, SHCMD(TERMINAL " -e man dwm")},
     {MODKEY, XK_F2, spawn, {.v = (const char *[]){"toggle-audio-devices.sh", NULL}}},
     {MODKEY, XK_F3, spawn, SHCMD(TERMINAL " -e cava")},
     {MODKEY, XK_F4, spawn, SHCMD(TERMINAL " -e pulsemixer; kill -44 $(pidof dwmblocks)")},
