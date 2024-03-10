@@ -173,6 +173,7 @@ static const Key keys[] = {
     {MODKEY | ShiftMask, XK_j, pushstack, {.i = INC(+1)}},
     {MODKEY | ShiftMask, XK_k, pushstack, {.i = INC(-1)}},
     {MODKEY, XK_l, setmfact, {.f = +0.05}},
+    {MODKEY | ShiftMask, XK_l, spawn, {.v = (const char *[]){"slock", NULL}}},
     {MODKEY, XK_semicolon, shiftview, {.i = -1}},
     {MODKEY, XK_apostrophe, shiftview, {.i = 1}},
     {MODKEY | ShiftMask, XK_semicolon, shifttag, {.i = -1}},
