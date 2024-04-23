@@ -202,6 +202,7 @@ static const Key keys[] = {
     {MODKEY, XK_F3, spawn, SHCMD(TERMINAL " -e cava")},
     {MODKEY, XK_F4, spawn, SHCMD(TERMINAL " -e pulsemixer; kill -44 $(pidof dwmblocks)")},
     {MODKEY, XK_F5, xrdb, {.v = NULL}},
+    {MODKEY, XK_F6, spawn, {.v = (const char *[]){"toggle-vpn.sh", NULL}}},
     {MODKEY, XK_BackSpace, spawn, {.v = (const char *[]){"sysact", NULL}}},
 
     /* function/laptop keys*/
