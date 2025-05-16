@@ -330,6 +330,8 @@ static void updatetitle(Client *c);
 static void updatewindowtype(Client *c);
 static void updatewmhints(Client *c);
 static void view(const Arg *arg);
+static void viewnext(const Arg *arg);
+static void viewprev(const Arg *arg);
 static Client *wintoclient(Window w);
 static Monitor *wintomon(Window w);
 static int xerror(Display *dpy, XErrorEvent *ee);
@@ -2863,6 +2865,32 @@ void view(const Arg *arg)
 
     focus(NULL);
     arrange(selmon);
+}
+
+void viewnext(const Arg *arg)
+{
+    int i;
+    for (i = 0; i < LENGTH(tags); i++) {
+        if ((selmon->tagset[selmon->seltags] >> i) & 1) {
+            break;
+        }
+    }
+    i = (i + 1) % LENGTH(tags);
+    const Arg a = {.ui = 1 << i};
+    view(&a);
+}
+
+void viewprev(const Arg *arg)
+{
+    int i;
+    for (i = 0; i < LENGTH(tags); i++) {
+        if ((selmon->tagset[selmon->seltags] >> i) & 1) {
+            break;
+        }
+    }
+    i = (i - 1 + LENGTH(tags)) % LENGTH(tags);
+    const Arg a = {.ui = 1 << i};
+    view(&a);
 }
 
 pid_t winpid(Window w)

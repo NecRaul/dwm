@@ -145,6 +145,8 @@ static const Key keys[] = {
                         TAGKEYS(XK_6, 5)
                             TAGKEYS(XK_7, 6)
                                 TAGKEYS(XK_8, 7)
+    {MODKEY, XK_Tab, viewnext, {0}},
+    {MODKEY | ShiftMask, XK_Tab, viewprev, {0}},
     /* keys set by me*/
     {MODKEY, XK_q, killclient, {0}},
     {MODKEY, XK_w, spawn, {.v = (const char *[]){BROWSER, NULL}}},
