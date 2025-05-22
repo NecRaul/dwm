@@ -189,7 +189,7 @@ static const Key keys[] = {
     {MODKEY, XK_v, togglefloating, {0}},
     {MODKEY, XK_b, togglebar, {0}},
     {MODKEY, XK_n, spawn, {.v = (const char *[]){TERMINAL, "-e", "weechat", NULL}}},
-    {MODKEY, XK_m, spawn, {.v = (const char *[]){TERMINAL, "-e", "ncmpcpp", NULL}}},
+    {MODKEY, XK_m, spawn, {.v = (const char *[]){TERMINAL, "-e", "ncmpcpp-art", NULL}}},
     {MODKEY | ShiftMask, XK_m, spawn, SHCMD("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle; kill -44 $(pidof dwmblocks)")},
     {MODKEY, XK_comma, spawn, {.v = (const char *[]){"mpc", "prev", NULL}}},
     {MODKEY, XK_period, spawn, {.v = (const char *[]){"mpc", "next", NULL}}},
