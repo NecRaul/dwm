@@ -187,6 +187,7 @@ static const Key keys[] = {
     {MODKEY, XK_x, incrgaps, {.i = +3}},
     {MODKEY, XK_c, zoom, {0}},
     {MODKEY, XK_v, togglefloating, {0}},
+    {MODKEY | ShiftMask , XK_v, spawn, {.v = (const char *[]){"clipmenu", NULL}}},
     {MODKEY, XK_b, togglebar, {0}},
     {MODKEY, XK_n, spawn, {.v = (const char *[]){TERMINAL, "-e", "weechat", NULL}}},
     {MODKEY, XK_m, spawn, {.v = (const char *[]){TERMINAL, "-e", "ncmpcpp-art", NULL}}},
