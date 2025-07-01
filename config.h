@@ -2,7 +2,6 @@
 
 /* Constants */
 #define TERMINAL "st"
-#define TERMINAL_XTERM "st-xterm"
 #define TERMCLASS "St"
 #define BROWSER "firefox"
 
@@ -158,7 +157,7 @@ static const Key keys[] = {
     {MODKEY | ShiftMask, XK_t, togglescratch, {.ui = 0}},
     {MODKEY, XK_u, incnmaster, {.i = +1}},
     {MODKEY, XK_i, incnmaster, {.i = -1}},
-    {MODKEY, XK_o, spawn, {.v = (const char *[]){TERMINAL_XTERM, "-e", "lfub", NULL}}},
+    {MODKEY, XK_o, spawn, {.v = (const char *[]){TERMINAL, "-e", "lfub", NULL}}},
     {MODKEY, XK_p, spawn, {.v = (const char *[]){BROWSER, "--private-window", NULL}}},
     {MODKEY | ShiftMask, XK_p, spawn, {.v = (const char *[]){"mpc", "toggle", NULL}}},
     {MODKEY, XK_minus, spawn, SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-; kill -44 $(pidof dwmblocks)")},
@@ -242,7 +241,7 @@ static const Button buttons[] = {
     {ClkStatusText, 0, Button5, sigdwmblocks, {.i = 5}},
     {ClkStatusText, ShiftMask, Button1, sigdwmblocks, {.i = 6}},
 #endif
-    {ClkStatusText, ShiftMask, Button3, spawn, SHCMD(TERMINAL_XTERM " -e nvim ~/Documents/Github/Repos/dwmblocks/config.h")},
+    {ClkStatusText, ShiftMask, Button3, spawn, SHCMD(TERMINAL " -e nvim ~/Documents/Github/Repos/dwmblocks/config.h")},
     {ClkClientWin, MODKEY, Button1, movemouse, {0}},
     {ClkClientWin, MODKEY, Button2, defaultgaps, {0}},
     {ClkClientWin, MODKEY, Button3, resizemouse, {0}},
@@ -256,4 +255,3 @@ static const Button buttons[] = {
     {ClkTagBar, 0, Button5, shiftview, {.i = 1}},
     {ClkRootWin, 0, Button2, togglebar, {0}},
 };
-
