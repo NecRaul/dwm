@@ -888,8 +888,17 @@ void copyvalidchars(char *text, char *rawtext)
 Monitor *
 createmon(void)
 {
-    Monitor *m;
+    Monitor *m, *t;
     unsigned int i;
+    int m_idx = 0;
+    for (t = mons; t; t = t->next)
+        m_idx++;
+
+    int default_idx = 0;
+
+    if (m_idx < LENGTH(lpm) && lpm[m_idx] < LENGTH(layouts) - 1) {
+        default_idx = lpm[m_idx];
+    }
 
     m = ecalloc(1, sizeof(Monitor));
     m->tagset[0] = m->tagset[1] = 1;
@@ -901,10 +910,10 @@ createmon(void)
     m->gappiv = gappiv;
     m->gappoh = gappoh;
     m->gappov = gappov;
-    m->lt[0] = &layouts[0];
+    m->lt[0] = &layouts[default_idx];
     m->lt[1] = &layouts[1 % LENGTH(layouts)];
     m->nTabs = 0;
-    strncpy(m->ltsymbol, layouts[0].symbol, sizeof m->ltsymbol);
+    strncpy(m->ltsymbol, layouts[default_idx].symbol, sizeof m->ltsymbol);
     m->pertag = ecalloc(1, sizeof(Pertag));
     m->pertag->curtag = m->pertag->prevtag = 1;
 
