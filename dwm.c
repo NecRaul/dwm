@@ -1298,7 +1298,11 @@ void grabkeys(void)
 
 void incnmaster(const Arg *arg)
 {
-    selmon->nmaster = selmon->pertag->nmasters[selmon->pertag->curtag] = MAX(selmon->nmaster + arg->i, 0);
+    unsigned int n = 0;
+    for (Client *c = selmon->clients; c; c = c->next)
+        if (ISVISIBLE(c))
+            n++;
+    selmon->nmaster = selmon->pertag->nmasters[selmon->pertag->curtag] = MIN(MAX(selmon->nmaster + arg->i, 0), n ? n : 1);
     arrange(selmon);
 }
 
