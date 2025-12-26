@@ -547,8 +547,8 @@ rtile(Monitor *m)
     if (m->nmaster && n > m->nmaster)
     {
         // invert mfact for right master
-        mw = (m->ww - 2 * ov - iv) * (1 - m->mfact); // master width on right
-        sw = (m->ww - 2 * ov - iv) - mw;             // stack width on left
+        mw = (m->ww - 2 * ov - iv) * (m->mfact); // master width on right
+        sw = (m->ww - 2 * ov - iv) - mw;         // stack width on left
     }
 
     // if all windows are in master, just fill the screen
