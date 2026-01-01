@@ -159,7 +159,7 @@ static const Key keys[] = {
     {MODKEY | ShiftMask, XK_t, togglescratch, {.ui = 0}},
     {MODKEY, XK_u, incnmaster, {.i = +1}},
     {MODKEY, XK_i, incnmaster, {.i = -1}},
-    {MODKEY, XK_o, spawn, {.v = (const char *[]){TERMINAL, "-e", "lfub", NULL}}},
+    {MODKEY, XK_o, spawn, {.v = (const char *[]){TERMINAL, "-t", "lf", "-e", "lfub", NULL}}},
     {MODKEY, XK_p, spawn, {.v = (const char *[]){BROWSER, "--private-window", NULL}}},
     {MODKEY | ShiftMask, XK_p, spawn, {.v = (const char *[]){"mpc", "toggle", NULL}}},
     {MODKEY, XK_minus, spawn, SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-; kill -44 $(pidof dwmblocks)")},
