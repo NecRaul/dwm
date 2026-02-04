@@ -204,7 +204,7 @@ static const Key keys[] = {
     {Mod1Mask, XK_Print, spawn, {.v = (const char *[]){"maimpick", "all screens", NULL}}},
     {MODKEY, XK_F1, spawn, {.v = (const char *[]){TERMINAL, "-e", "man", "dwm", NULL}}},
     {MODKEY, XK_F2, spawn, {.v = (const char *[]){"toggle-audio-devices.sh", NULL}}},
-    {MODKEY, XK_F3, spawn, SHCMD(TERMINAL " -e cava")},
+    {MODKEY, XK_F3, spawn, {.v = (const char *[]){TERMINAL, "-e", "cava", NULL}}},
     {MODKEY, XK_F4, spawn, SHCMD(TERMINAL " -e pulsemixer; kill -44 $(pidof dwmblocks)")},
     {MODKEY, XK_F5, xrdb, {.v = NULL}},
     {MODKEY, XK_F6, spawn, {.v = (const char *[]){"toggle-vpn.sh", NULL}}},
@@ -243,7 +243,7 @@ static const Button buttons[] = {
     {ClkStatusText, 0, Button5, sigdwmblocks, {.i = 5}},
     {ClkStatusText, ShiftMask, Button1, sigdwmblocks, {.i = 6}},
 #endif
-    {ClkStatusText, ShiftMask, Button3, spawn, SHCMD(TERMINAL " -e nvim ~/Documents/Github/Repos/dwmblocks/config.h")},
+    {ClkStatusText, ShiftMask, Button3, spawn, {.v = (const char *[]){TERMINAL, "-e", "nvim", "~/Documents/Github/Repos/dwmblocks/config.h", NULL}}},
     {ClkClientWin, MODKEY, Button1, movemouse, {0}},
     {ClkClientWin, MODKEY, Button2, defaultgaps, {0}},
     {ClkClientWin, MODKEY, Button3, resizemouse, {0}},
