@@ -45,8 +45,8 @@ typedef struct
     const char *name;
     const void *cmd;
 } Sp;
-const char *spcmd1[] = {TERMINAL, "-n", "spterm", "-g", "120x34", NULL};
-const char *spcmd2[] = {TERMINAL, "-n", "spcalc", "-f", "monospace:size=16", "-g", "50x20", "-e", "bc", "-lq", NULL};
+const char *spcmd1[] = {TERMINAL, "-n", "spterm", "-f", "HackNerdFontMono:size=12", "-g", "100x30", "-e", "env", "NO_TMUX=1", "bash", NULL};
+const char *spcmd2[] = {TERMINAL, "-n", "spcalc", "-f", "HackNerdFontMono:size=12", "-g", "100x30", "-e", "qalc", NULL};
 static Sp scratchpads[] = {
     /* name          cmd  */
     {"spterm", spcmd1},
@@ -155,8 +155,8 @@ static const Key keys[] = {
     {MODKEY, XK_e, spawn, {.v = (const char *[]){"dolphin", NULL}}},
     {MODKEY, XK_r, spawn, {.v = (const char *[]){"dmenu_run", NULL}}},
     {MODKEY, XK_t, spawn, {.v = termcmd}},
-    {MODKEY, XK_y, togglesmartgaps, {0}},
     {MODKEY | ShiftMask, XK_t, togglescratch, {.ui = 0}},
+    {MODKEY, XK_y, togglesmartgaps, {0}},
     {MODKEY, XK_u, incnmaster, {.i = +1}},
     {MODKEY, XK_i, incnmaster, {.i = -1}},
     {MODKEY, XK_o, spawn, {.v = (const char *[]){TERMINAL, "-t", "lf", "-e", "lfub", NULL}}},
@@ -190,7 +190,8 @@ static const Key keys[] = {
     {MODKEY, XK_v, togglefloating, {0}},
     {MODKEY | ShiftMask , XK_v, spawn, {.v = (const char *[]){"clipmenu", NULL}}},
     {MODKEY, XK_b, togglebar, {0}},
-    {MODKEY, XK_n, spawn, {.v = (const char *[]){TERMINAL, "-e", "weechat", NULL}}},
+    {MODKEY, XK_n, spawn, {.v = (const char *[]){TERMINAL, "-e", "nvim", NULL}}},
+    {MODKEY | ShiftMask, XK_n, spawn, {.v = (const char *[]){TERMINAL, "-e", "weechat", NULL}}},
     {MODKEY, XK_m, spawn, {.v = (const char *[]){TERMINAL, "-e", "ncmpcpp-art", NULL}}},
     {MODKEY | ShiftMask, XK_m, spawn, SHCMD("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle; kill -44 $(pidof dwmblocks)")},
     {MODKEY, XK_comma, spawn, {.v = (const char *[]){"mpc", "prev", NULL}}},
@@ -244,7 +245,7 @@ static const Button buttons[] = {
     {ClkStatusText, 0, Button5, sigdwmblocks, {.i = 5}},
     {ClkStatusText, ShiftMask, Button1, sigdwmblocks, {.i = 6}},
 #endif
-    {ClkStatusText, ShiftMask, Button3, spawn, {.v = (const char *[]){TERMINAL, "-e", "nvim", "~/Documents/Github/Repos/dwmblocks/config.h", NULL}}},
+    {ClkStatusText, ShiftMask, Button3, spawn, {.v = (const char *[]){TERMINAL, "-e", "nvim", "Documents/Github/Repos/dwmblocks/config.h", NULL}}},
     {ClkClientWin, MODKEY, Button1, movemouse, {0}},
     {ClkClientWin, MODKEY, Button2, defaultgaps, {0}},
     {ClkClientWin, MODKEY, Button3, resizemouse, {0}},
