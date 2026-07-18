@@ -152,6 +152,7 @@ static const Key keys[] = {
     /* keys set by me*/
     {MODKEY, XK_q, killclient, {0}},
     {MODKEY, XK_w, spawn, {.v = (const char *[]){BROWSER, NULL}}},
+    {MODKEY | ShiftMask, XK_w, spawn, {.v = (const char *[]){TERMINAL, "-e", "weechat", NULL}}},
     {MODKEY, XK_e, spawn, {.v = (const char *[]){"dolphin", NULL}}},
     {MODKEY, XK_r, spawn, {.v = (const char *[]){"dmenu_run", NULL}}},
     {MODKEY, XK_t, spawn, {.v = termcmd}},
@@ -191,7 +192,7 @@ static const Key keys[] = {
     {MODKEY | ShiftMask , XK_v, spawn, {.v = (const char *[]){"clipmenu", NULL}}},
     {MODKEY, XK_b, togglebar, {0}},
     {MODKEY, XK_n, spawn, {.v = (const char *[]){TERMINAL, "-e", "nvim", NULL}}},
-    {MODKEY | ShiftMask, XK_n, spawn, {.v = (const char *[]){TERMINAL, "-e", "weechat", NULL}}},
+    {MODKEY | ShiftMask, XK_n, spawn, {.v = (const char *[]){TERMINAL, "-e", "nyaa", NULL}}},
     {MODKEY, XK_m, spawn, {.v = (const char *[]){TERMINAL, "-e", "ncmpcpp-art", NULL}}},
     {MODKEY | ShiftMask, XK_m, spawn, SHCMD("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle; kill -44 $(pidof dwmblocks)")},
     {MODKEY, XK_comma, spawn, {.v = (const char *[]){"mpc", "prev", NULL}}},
