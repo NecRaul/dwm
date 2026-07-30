@@ -201,6 +201,7 @@ static const Key keys[] = {
     {MODKEY | ShiftMask, XK_slash, tag, {.ui = ~0}},
     {Mod1Mask, XK_Tab, altTabStart, {0}},
     {MODKEY, XK_space, spawn, {.v = (const char *[]){"devnav", NULL}}},
+    {MODKEY, XK_Return, spawn, {.v = (const char *[]){"setbg", NULL}}},
     {0, XK_Print, spawn, {.v = (const char *[]){"maimpick", "area", NULL}}},
     {ControlMask, XK_Print, spawn, {.v = (const char *[]){"maimpick", "window", NULL}}},
     {MODKEY, XK_Print, spawn, {.v = (const char *[]){"maimpick", "screen", NULL}}},
